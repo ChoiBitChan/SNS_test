@@ -37,7 +37,7 @@
 
 <body id="page-top">
 
-<!-- 네이게이션 바 시작 -->
+	<!-- 네이게이션 바 시작 -->
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -64,19 +64,19 @@
         <!-- /.container-fluid -->
     </nav>
     
-<!-- 네이게이션 바 끝 -->
-    
-<!-- 헤더 시작 -->    
+	<!-- 네이게이션 바 끝 -->
+	    
+	<!-- 헤더 시작 -->    
     <header>
     	
     	<!-- 헤더 첫번째 row 시작-->
         <div class="header-content row">
             
-         <!-- 첫번째 row의 col-md-4 시작 -->   
+        <!-- 첫번째 row의 col-md-4 시작 -->   
             <div class="header-content-inner col-md-4" >
                <h1 id="homeHeading">S.N.S<br/><small>Stop no Show<br> 레스토랑 예약 프로그램!!</small></h1>
             </div>
-             <!-- 첫번째 row의 col-md-4 끝 -->   
+            <!-- 첫번째 row의 col-md-4 끝 -->   
             <!-- 첫번째 row의 col-md-8 시작 -->   
             <div class="col-md-8">
             <br/><br/><br/><br/>
@@ -109,12 +109,13 @@
                </form>
             </div>
            <!-- 첫번째 row의 col-md-8 끝-->   
-        </div><!-- 헤더 첫번째 row 끝-->
+        </div>
+        <!-- 헤더 첫번째 row 끝-->
         
     </header>
 
     
-<!-- 레스토랑 표시부분 시작 -->
+	<!-- 레스토랑 표시부분 시작 -->
     <section class="no-padding" id="portfolio">
         <div class="container-fluid">
             <div class="row no-gutter popup-gallery">
