@@ -26,6 +26,11 @@
     <!-- Theme CSS -->
     <link href="css/creative.min.css" rel="stylesheet">
     
+    <!-- Table -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+ 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -115,40 +120,66 @@
     
     
 	<jsp:useBean id="toDay" class="java.util.Date"/>
-	예약 현황<br/>
-	<table border="1">
-		<tr>
-			<td>예약일자</td>
-			<td>업체명</td>
-			<td>상태창</td>
-			<td>예약취소</td>
-			<td>후기</td>
-		</tr>
-		<c:forEach var="reserveList" items="${reserveList}">
-				<tr>
-					<td>
-						<fmt:formatDate value="${reserveList.reserve_date}" var="reserve_date" type="both" pattern="yyyy-MM-dd HH:mm"/>
-						${reserve_date}
-					</td>
-					<td>${reserveList.e_name}</td>
-					<td>승인대기</td>
-					<td>
-						<fmt:parseDate value="${reserve_date}" var="reDay" pattern="yyyy-MM-dd HH:mm"/>
-						<c:if test="${reDay.time - toDay.time > 0}"><input type="button" value="Cancel"></c:if>
-					</td>
-					<td>
-						<fmt:parseDate value="${reserve_date}" var="reDay" pattern="yyyy-MM-dd HH:mm"/>
-						<c:if test="${reDay.time - toDay.time < 0}"><input type="button" value="Write"></c:if>
-					</td>
-				</tr>
-		</c:forEach>
-	</table>
-	<input type="button" value="마이페이지" OnClick="window.location='/test/Mypage_Main.do'"><br/>
-	
-	
-	
-	
-	
+	<div class="container">
+		<div class="col-lg-2 col-sm-2"></div>
+		<div class="col-lg-10 col-sm-10"><h2>예약 현황</h2></div>
+		
+		<div id="menuList" class="col-lg-2 col-sm-2">
+			<div class="row"><br/></div>
+			<div class="row">
+				<div id="button1" class="col-lg-2 col-sm-2">
+				<button type="button" class="btn btn-default btn-lg" OnClick="window.location='/test/Mypage_Reserve.do'">예약</button>
+				</div>
+			</div>
+			<div class="row"><br/></div>
+			<div class="row">
+				<div id="button2" class="col-lg-2 col-sm-2">
+				<button type="button" class="btn btn-default btn-lg" OnClick="window.location='/test/Mypage_UserInfo.do'">정보수정</button>
+				</div>
+			</div>
+			<div class="row"><br/></div>
+			<div class="row">
+				<div id="button3" class="col-lg-2 col-sm-2">
+				<button type="button" class="btn btn-default btn-lg" OnClick="window.location='/test/Mypage_Review.do'">후기</button>
+				</div>
+			</div>
+		</div>
+  		
+  		<div id="table" class="col-lg-10 col-sm-10">
+  		
+		  	<table class="table">
+				<thead>
+					<tr>
+				        <th>예약일자</th>
+				        <th>업체명</th>
+				        <th>상태창</th>
+				        <th>예약취소</th>
+				        <th>후기</th>
+			      	</tr>
+			    </thead>
+			    <tbody>
+			        <c:forEach var="reserveList" items="${reserveList}">
+						<tr>
+							<td>
+								<fmt:formatDate value="${reserveList.reserve_date}" var="reserve_date" type="both" pattern="yyyy-MM-dd HH:mm"/>
+								${reserve_date}
+							</td>
+							<td>${reserveList.e_name}</td>
+							<td>승인대기</td>
+							<td>
+								<fmt:parseDate value="${reserve_date}" var="reDay" pattern="yyyy-MM-dd HH:mm"/>
+								<c:if test="${reDay.time - toDay.time > 0}"><input type="button" value="Cancel"></c:if>
+							</td>
+							<td>
+								<fmt:parseDate value="${reserve_date}" var="reDay" pattern="yyyy-MM-dd HH:mm"/>
+								<c:if test="${reDay.time - toDay.time < 0}"><input type="button" value="Write"></c:if>
+							</td>
+						</tr>
+					</c:forEach>
+			    </tbody>
+			 </table>
+		 </div>
+	</div>
 	
 	
 	<aside class="bg-dark">
