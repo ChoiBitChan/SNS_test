@@ -116,16 +116,16 @@
     
     
     
-    
+     <section id="reviewSection" style="height: 800px ">
     	<div class="container">
 		<div class="col-lg-2 col-sm-2"></div>
-		<div class="col-lg-10 col-sm-10"><h2>후기</h2></div>
+		<div class="col-lg-10 col-sm-10"><h2>후기목록</h2></div>
 		
 		<div id="menuList" class="col-lg-2 col-sm-2">
 			<div class="row"><br/></div>
 			<div class="row">
 				<div id="button1" class="col-lg-2 col-sm-2">
-				<button type="button" class="btn btn-default btn-lg" OnClick="window.location='/test/Mypage_Reserve.do'">예약</button>
+				<button type="button" class="btn btn-default btn-lg" OnClick="window.location='/test/Mypage_Reserve.do'">예약현황</button>
 				</div>
 			</div>
 			<div class="row"><br/></div>
@@ -137,43 +137,47 @@
 			<div class="row"><br/></div>
 			<div class="row">
 				<div id="button3" class="col-lg-2 col-sm-2">
-				<button type="button" class="btn btn-default btn-lg" OnClick="window.location='/test/Mypage_Review.do'">후기</button>
+				<button type="button" class="btn btn-default btn-lg" OnClick="window.location='/test/Mypage_Review.do'">후기목록</button>
 				</div>
 			</div>
 		</div>
   		
   		<div id="table" class="col-lg-10 col-sm-10">
   		
-		  	<table class="table">
-				<thead>
-					<tr>
-				        <th>작성일자</th>
-				        <th>평점</th>
-				        <th>업체명</th>
-				        <th>후기글</th>
-				        <th>수정</th>
-				        <th>삭제</th>
-			      	</tr>
-			    </thead>
-			    <tbody>
-			        <c:forEach var="reviewList" items="${reviewList}">
+		  		<table class="table">
+					<thead>
 						<tr>
-							<td>
-								<fmt:formatDate value="${reviewList.write_date}" var="write_date" type="both" pattern="yyyy-MM-dd"/>
-								${write_date}
-							</td>
-							<td>${reviewList.ranking}</td>
-							<td>${reviewList.e_name}</td>
-							<td>${reviewList.comments}</td>
-							<td><input type="button" value="Modify"></td>
-							<td><input type="button" value="Delete" OnClick="window.location='/Bchan_test/Review_Delete.do?comments=${reviewList.comments}&&userid=${reviewList.userid}&&write_date=${write_date}'"></td>
-						</tr>
-					</c:forEach>
-			    </tbody>
-			 </table>
-		 </div>
-	</div>
-	
+					        <th>작성일자</th>
+					        <th>평점</th>
+					        <th>업체명</th>
+					        <th>후기글</th>
+					        <th>수정</th>
+					        <th>삭제</th>
+				      	</tr>
+				    </thead>
+				    <tbody>
+				        <c:forEach var="reviewList" items="${reviewList}">
+							<tr>
+								<td>
+									<fmt:formatDate value="${reviewList.write_date}" var="write_date" type="both" pattern="yyyy-MM-dd"/>
+									${write_date}
+								</td>
+								<td>${reviewList.ranking}</td>
+								<td>${reviewList.e_name}</td>
+								<td>${reviewList.comments}</td>
+								<td>
+									<input type="button" id="btn_modify" class="btn btn-info btn-sm" value="Modify">
+								</td>
+								<td>
+									<input type="button" id="btn_delete" class="btn btn-info btn-sm" value="Delete" OnClick="window.location='/test/Review_Delete.do?comments=${reviewList.comments}&&userid=${reviewList.userid}&&write_date=${write_date}'">
+								</td>
+							</tr>
+						</c:forEach>
+				    </tbody>
+			 	</table>
+		 	</div>
+		</div>
+	</section>
 	
 	
 	

@@ -9,7 +9,14 @@ public class ReserveDTO {
 	private String userid;
 	private String deposit;
 	private String e_name;
+	private int r_state;
 	
+	public int getR_state() {
+		return r_state;
+	}
+	public void setR_state(int r_state) {
+		this.r_state = r_state;
+	}
 	public String getE_name() {
 		return e_name;
 	}

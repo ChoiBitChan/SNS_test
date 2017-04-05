@@ -16,7 +16,7 @@
 			<div class="row"><br/></div>
 			<div class="row">
 				<div id="button1" class="col-lg-2 col-sm-2">
-				<button type="button" class="btn btn-default btn-lg" OnClick="window.location='/test/Mypage_Reserve.do'">예약</button>
+				<button type="button" class="btn btn-default btn-lg" OnClick="window.location='/test/Mypage_Reserve.do'">예약현황</button>
 				</div>
 			</div>
 			<div class="row"><br/></div>
@@ -28,7 +28,7 @@
 			<div class="row"><br/></div>
 			<div class="row">
 			<div id="button3" class="col-lg-2 col-sm-2">
-				<button type="button" class="btn btn-default btn-lg" OnClick="window.location='/test/Mypage_Review.do'">후기</button>
+				<button type="button" class="btn btn-default btn-lg" OnClick="window.location='/test/Mypage_Review.do'">후기목록</button>
 			</div>
 			</div>    
 		</div>

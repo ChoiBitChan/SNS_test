@@ -118,7 +118,7 @@
     
     
     
-    
+    <section id="reserveSection" style="height: 800px">
 	<jsp:useBean id="toDay" class="java.util.Date"/>
 	<div class="container">
 		<div class="col-lg-2 col-sm-2"></div>
@@ -128,7 +128,7 @@
 			<div class="row"><br/></div>
 			<div class="row">
 				<div id="button1" class="col-lg-2 col-sm-2">
-				<button type="button" class="btn btn-default btn-lg" OnClick="window.location='/test/Mypage_Reserve.do'">예약</button>
+				<button type="button" class="btn btn-default btn-lg" OnClick="window.location='/test/Mypage_Reserve.do'">예약현황</button>
 				</div>
 			</div>
 			<div class="row"><br/></div>
@@ -140,7 +140,7 @@
 			<div class="row"><br/></div>
 			<div class="row">
 				<div id="button3" class="col-lg-2 col-sm-2">
-				<button type="button" class="btn btn-default btn-lg" OnClick="window.location='/test/Mypage_Review.do'">후기</button>
+				<button type="button" class="btn btn-default btn-lg" OnClick="window.location='/test/Mypage_Review.do'">후기목록</button>
 				</div>
 			</div>
 		</div>
@@ -165,14 +165,39 @@
 								${reserve_date}
 							</td>
 							<td>${reserveList.e_name}</td>
-							<td>승인대기</td>
 							<td>
-								<fmt:parseDate value="${reserve_date}" var="reDay" pattern="yyyy-MM-dd HH:mm"/>
-								<c:if test="${reDay.time - toDay.time > 0}"><input type="button" value="Cancel"></c:if>
+								<c:if test="${reserveList.r_state==1}">
+									승인대기
+								</c:if>
+								<c:if test="${reserveList.r_state==2}">
+									예약완료
+								</c:if>
+								<c:if test="${reserveList.r_state==3}">
+									취소요청
+								</c:if>
+								<c:if test="${reserveList.r_state==4}">
+									이용완료
+								</c:if>
+								<c:if test="${reserveList.r_state==5}">
+									취소완료
+								</c:if>
+									
 							</td>
 							<td>
 								<fmt:parseDate value="${reserve_date}" var="reDay" pattern="yyyy-MM-dd HH:mm"/>
-								<c:if test="${reDay.time - toDay.time < 0}"><input type="button" value="Write"></c:if>
+								<c:if test="${reDay.time - toDay.time > 0}">
+									<c:if test="${reserveList.r_state==1 or reserveList.r_state==2}">
+										<input type="button" id="btn_cancel" class="btn btn-info btn-sm" value="Cancel">
+									</c:if>
+								</c:if>
+							</td>
+							<td>
+								<fmt:parseDate value="${reserve_date}" var="reDay" pattern="yyyy-MM-dd HH:mm"/>
+								<c:if test="${reDay.time - toDay.time < 0}">
+									<c:if test="${reDay.time - toDay.time > -3*(1000*60*60*24)}">
+										<input type="button" id="btn_write" class="btn btn-info btn-sm" data-toggle="modal" data-target="#write" value="Write">
+									</c:if>
+								</c:if>
 							</td>
 						</tr>
 					</c:forEach>
@@ -180,7 +205,7 @@
 			 </table>
 		 </div>
 	</div>
-	
+	</section>
 	
 	<aside class="bg-dark">
         <div class="container text-center">
@@ -209,6 +234,74 @@
             </div>
         </div>
     </section>
+    
+    <!-- 모달 후기글쓰기 시작 -->
+	<div class="modal fade" id="write" role="dialog">
+		<div class="modal-dialog">
+	      	<!-- Modal content-->
+	    	<div class="modal-content">
+		        <div class="modal-header">
+		          	<button type="button" class="close" data-dismiss="modal">&times;</button>
+		          	<h4 class="modal-title">후기 글 작성</h4>
+		        </div>
+		        <div class="modal-body">
+		        
+		        
+		        
+		          	<form class="form-horizontal">
+					    <div class="form-group">
+					    	<div class="col-lg-2 col-sm-2"></div>
+						    <div class="col-lg-8 col-sm-8">
+						    	<label for="comments">이미지</label>     
+						        <input type="file" class="form-control" id="file">
+						    </div>
+					    </div>
+					    
+					    <div class="form-group">
+					   		<div class="col-lg-2 col-sm-2"></div>
+					      	<div class="col-lg-8 col-sm-8">
+					      		<label for="comments">코멘트</label>   
+					    		<textarea class="form-control" rows="5" id="comments"></textarea>
+					      	</div>
+					    </div>
+					    
+					    <div class="form-group">
+					   		<div class="col-lg-2 col-sm-2"></div>
+					      	<div class="col-lg-8 col-sm-8">
+					      		<label for="comments">평점</label><br/> 
+					    		<label class="radio-inline">
+							      <input type="radio" name="optradio" id="5">5
+							    </label>
+							    <label class="radio-inline">
+							      <input type="radio" name="optradio" id="4">4
+							    </label>
+							    <label class="radio-inline">
+							      <input type="radio" name="optradio" id="3">3
+							    </label>
+							    <label class="radio-inline">
+							      <input type="radio" name="optradio" id="2">2
+							    </label>
+							    <label class="radio-inline">
+							      <input type="radio" name="optradio" id="1">1
+							    </label>
+					      	</div>
+					    </div>
+	  				</form>
+		          	
+		          	
+		          	
+		        </div>
+		        <div class="modal-footer">
+		        	<button type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
+		          	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        </div>
+	      	</div>
+	    </div>
+  	</div>
+	<!-- 모달 후기글쓰기 끝 -->	
+    
+    
+    
     <!-- footer 추가 -->	
 	<%@include file="footer.jsp"%>
 	

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import test.dao.MypageDAO;
+import test.dto.CustomerDTO;
 import test.dto.ReserveDTO;
 import test.dto.ReviewDTO;
 
@@ -53,9 +54,25 @@ public class MypageController {
 	
 	
 	@RequestMapping("/Mypage_UserInfo.do")
-	public String mypage_userinfo() {
+	public ModelAndView mypage_userinfo() {
 		System.out.println("UserInfo page");
-		return "Mypage_UserInfo";
+		ModelAndView mav = new ModelAndView("Mypage_UserInfo");
+		
+		CustomerDTO userInfo = new CustomerDTO();
+		userInfo = mypageDAO.getInfo("a");
+		mav.addObject("userInfo", userInfo);
+		
+		return mav;
+	}
+	
+	@RequestMapping("/modifyInfo.do")
+	public String modifyInfo(CustomerDTO userInfo, BindingResult result) {
+		System.out.println("modifyInfo");
+		System.out.println(userInfo.getUserid());
+		System.out.println(userInfo.getName());
+		mypageDAO.modifyInfo(userInfo);
+		
+		return "redirect:/Mypage_UserInfo.do";
 	}
 	
 	

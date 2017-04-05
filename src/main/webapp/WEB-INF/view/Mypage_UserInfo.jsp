@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,6 +25,7 @@
     <!-- Theme CSS -->
     <link href="css/creative.min.css" rel="stylesheet">
     
+    <!-- Form -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -111,14 +113,17 @@
         </div><!-- 헤더 첫번째 row 끝-->
     </header>
     
+    <section id="infoSection" style="height: 800px">
     <div class="container">
+    
 		<div class="col-lg-2 col-sm-2"></div>
 		<div class="col-lg-10 col-sm-10"><h2>정보 수정</h2></div>
+		
 		<div id="menuList" class="col-lg-2 col-sm-2">
 			<div class="row"><br/></div>
 			<div class="row">
 				<div id="button1" class="col-lg-2 col-sm-2">
-				<button type="button" class="btn btn-default btn-lg" OnClick="window.location='/test/Mypage_Reserve.do'">예약</button>
+				<button type="button" class="btn btn-default btn-lg" OnClick="window.location='/test/Mypage_Reserve.do'">예약현황</button>
 				</div>
 			</div>
 			<div class="row"><br/></div>
@@ -130,11 +135,82 @@
 			<div class="row"><br/></div>
 			<div class="row">
 			<div id="button3" class="col-lg-2 col-sm-2">
-				<button type="button" class="btn btn-default btn-lg" OnClick="window.location='/test/Mypage_Review.do'">후기</button>
+				<button type="button" class="btn btn-default btn-lg" OnClick="window.location='/test/Mypage_Review.do'">후기목록</button>
 			</div>
 			</div>    
 		</div>
+		
+		<c:set var="userInfo" value="${userInfo}"/>
+		
+		<div class="col-lg-10 col-sm-10">
+			<form class="form-horizontal">
+				<div class="form-group">
+					<div class="col-lg-2 col-sm-2">
+			    		<label class="control-label col-sm-1" for="userid">ID</label>
+			    	</div>
+				    <div class="col-lg-8 col-sm-8">
+				        <input type="hidden" class="form-control" id="userid" value="${userInfo.userid}"><h4>${userInfo.userid}</h4>
+				    </div>
+			    </div>
+			    
+			    <div class="form-group">
+			    	<div class="col-lg-2 col-sm-2">
+			      		<label class="control-label col-sm-1" for="password">Password</label>
+			      	</div>
+				    <div class="col-lg-8 col-sm-8">          
+				        <input type="password" class="form-control" id="password" value="${userInfo.password}">
+				    </div>
+			    </div>
+			    
+			    <div class="form-group">
+			    	<div class="col-lg-2 col-sm-2"></div>
+				    <div class="col-lg-8 col-sm-8">          
+				        <input type="password" class="form-control" id="password2" placeholder="">
+				    </div>
+			    </div>
+			    
+			    <div class="form-group">
+			   		<div class="col-lg-2 col-sm-2">
+			      		<label class="control-label col-sm-1" for="name">Name</label>
+			      	</div>
+			      	<div class="col-lg-8 col-sm-8">          
+			    		<input type="text" class="form-control" id="name" value="${userInfo.name}">
+			      	</div>
+			    </div>
+			    
+			    <div class="form-group">
+			   		<div class="col-lg-2 col-sm-2">
+			      		<label class="control-label col-sm-1" for="mobile">Mobile</label>
+			      	</div>
+			      	<div class="col-lg-8 col-sm-8">          
+			    		<input type="text" class="form-control" id="mobile" value="${userInfo.mobile}">
+			      	</div>
+			    </div>
+			    
+			    <div class="form-group">
+			    	<div class="col-lg-2 col-sm-2">
+			      		<label class="control-label col-sm-1" for="email">Email</label>
+			      	</div>
+			      	<div class="col-sm-8">          
+			        	<input type="email" class="form-control" id="email" value="${userInfo.email}">
+			      	</div>
+			    </div>
+			   
+			    <div class="form-group">        
+			      	<div class="col-sm-offset-2">
+				      	<div class="col-lg-8 col-sm-8">
+				        	<button type="submit" class="btn btn-default" id="submit">수정</button>
+				        	<button type="button" class="btn btn-default">취소</button>
+				        </div>
+				        <div class="col-lg-2 col-sm-2">
+				        	<button type="button" class="btn btn-default" id="leave">탈퇴</button>
+				        </div>
+			      	</div>
+			    </div>
+	  		</form>
+		</div>
 	</div>
+    </section>
     
     <aside class="bg-dark">
         <div class="container text-center">
@@ -162,7 +238,76 @@
                 </div>
             </div>
         </div>
+        
+       
+        
     </section>
+    
+    
+    
+    
+    
+    <!-- jQuery -->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" type="text/css">
+    <script src="vendor/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="js/creative.min.js"></script>
+    
+    
+    
+    
+    
+    <script type="text/javascript">
+    
+	$('#submit').on('click',function(){
+		
+		var url='modifyInfo.do'
+		
+		var userid = $('#userid').val();
+		var password = $('#password').val();
+		var name = $('#name').val();
+		var mobile = $('#mobile').val();
+		var email = $('#email').val();
+
+		var query = 'userid=' + userid + '&password=' + password + '&name=' + name + '&mobile=' + mobile + '&email=' + email;
+		
+		
+		$.ajax({
+			 type:"GET"
+			 ,url:url
+			 ,data:query
+			 ,dataType:"text"
+			 ,success:function(data){
+				console.log(data);
+			 }
+			 ,error:function(e){
+			  console.log(e.responseText);
+			 }
+			
+		})
+		
+	})
+    
+    
+    </script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <!-- footer 추가 -->	
 	<%@include file="footer.jsp"%>
 </body>
