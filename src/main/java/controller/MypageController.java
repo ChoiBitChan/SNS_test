@@ -13,6 +13,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import test.dao.MypageDAO;
@@ -40,16 +41,27 @@ public class MypageController {
 	
 	
 	@RequestMapping("/Mypage_Reserve.do")
-	public ModelAndView mypage_reserve() {
+	public ModelAndView mypage_reserve(@RequestParam(value="end_rno", defaultValue="10") String end_rno) {
+		System.out.println(end_rno);
 		System.out.println("Reserve page");
 		ModelAndView mav = new ModelAndView("Mypage_Reserve");
 		
 		List<ReserveDTO> list = new ArrayList<ReserveDTO>();
-		list = mypageDAO.getReserveList("a");
+		list = mypageDAO.getReserveList("a", end_rno);
 		mav.addObject("reserveList", list);
 		return mav;
 	}
 	
+	@RequestMapping("/More_Reserve.do")
+	public ModelAndView more_reserve(@RequestParam(value="end_rno", defaultValue="10") String end_rno) {
+		
+		ModelAndView mav = new ModelAndView("Reserve_TBody");
+		
+		List<ReserveDTO> list = new ArrayList<ReserveDTO>();
+		list = mypageDAO.getReserveList("a", end_rno);
+		mav.addObject("reserveList", list);
+		return mav;
+	}
 	
 	
 	

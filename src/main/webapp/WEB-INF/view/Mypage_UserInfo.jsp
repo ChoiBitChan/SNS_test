@@ -3,39 +3,54 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	
+	<title>S.N.S</title>
+	
+	<!-- Bootstrap Core CSS -->
+	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	
+	<!-- Custom Fonts -->
+	<link href="vendor/font-awesome/css/font-awesome.min.css"
+		rel="stylesheet" type="text/css">
+	<link
+		href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+		rel='stylesheet' type='text/css'>
+	<link
+		href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic'
+		rel='stylesheet' type='text/css'>
+	
+	<!-- Plugin CSS -->
+	<link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+	
+	<!-- Theme CSS -->
+	<link href="css/creative.min.css" rel="stylesheet">
+	
+	<!-- jQuery -->
+	<link rel="stylesheet"
+		href="http://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css"
+		type="text/css">
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	
+	<!-- Bootstrap Core JavaScript -->
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	
+	<!-- Plugin JavaScript -->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+	<script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+	<script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+	
+	<!-- Theme JavaScript -->
+	<script src="js/creative.min.js"></script>
 
-    <title>S.N.S</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-
-    <!-- Plugin CSS -->
-   <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
- 
-    <!-- Theme CSS -->
-    <link href="css/creative.min.css" rel="stylesheet">
-    
-    <!-- Form -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
- 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 <body id="page-top">
 	<!-- 네이게이션 바 시작 -->
@@ -113,7 +128,7 @@
         </div><!-- 헤더 첫번째 row 끝-->
     </header>
     
-    <section id="infoSection" style="height: 800px">
+    <section id="infoSection">
     <div class="container">
     
 		<div class="col-lg-2 col-sm-2"></div>
@@ -123,20 +138,26 @@
 			<div class="row"><br/></div>
 			<div class="row">
 				<div id="button1" class="col-lg-2 col-sm-2">
-				<button type="button" class="btn btn-default btn-lg" OnClick="window.location='/test/Mypage_Reserve.do'">예약현황</button>
+					<button type="button" class="btn btn-default btn-lg">
+							<a href="Mypage_Reserve.do">예약현황</a>
+					</button>
 				</div>
 			</div>
 			<div class="row"><br/></div>
 			<div class="row">
 				<div id="button2" class="col-lg-2 col-sm-2">
-				<button type="button" class="btn btn-default btn-lg" OnClick="window.location='/test/Mypage_UserInfo.do'">정보수정</button>
+					<button type="button" class="btn btn-default btn-lg">
+							<a href="Mypage_UserInfo.do">정보수정</a>
+					</button>
 				</div>
 			</div>
 			<div class="row"><br/></div>
 			<div class="row">
-			<div id="button3" class="col-lg-2 col-sm-2">
-				<button type="button" class="btn btn-default btn-lg" OnClick="window.location='/test/Mypage_Review.do'">후기목록</button>
-			</div>
+				<div id="button3" class="col-lg-2 col-sm-2">
+					<button type="button" class="btn btn-default btn-lg">
+						<a href="Mypage_Review.do">후기목록</a>
+					</button>	
+				</div>
 			</div>    
 		</div>
 		
@@ -309,6 +330,6 @@
     
     
     <!-- footer 추가 -->	
-	<%@include file="footer.jsp"%>
+	<%@include file="./tiles/footer.jsp"%>
 </body>
 </html>

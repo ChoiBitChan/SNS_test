@@ -1,6 +1,8 @@
 package test.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 
@@ -10,8 +12,13 @@ import test.dto.ReviewDTO;
 
 public class MypageDAO extends SqlSessionDaoSupport {
 	
-	public List<ReserveDTO> getReserveList(String userid) {
-		List<ReserveDTO> reserveDTO = getSqlSession().selectList("reserve.getReserve", userid);
+	public List<ReserveDTO> getReserveList(String userid, String end_rno) {
+		
+		Map<String, String> map = new HashMap<>();
+		map.put("userid", userid);
+		map.put("end_rno", end_rno);
+		
+		List<ReserveDTO> reserveDTO = getSqlSession().selectList("reserve.getReserve", map);
 		return reserveDTO;
 	}
 	

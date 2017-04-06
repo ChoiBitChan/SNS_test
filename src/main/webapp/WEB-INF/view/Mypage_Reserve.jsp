@@ -4,121 +4,62 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	
+	<title>S.N.S</title>
+	
+	<!-- Bootstrap Core CSS -->
+	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	
+	<!-- Custom Fonts -->
+	<link href="vendor/font-awesome/css/font-awesome.min.css"
+		rel="stylesheet" type="text/css">
+	<link
+		href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+		rel='stylesheet' type='text/css'>
+	<link
+		href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic'
+		rel='stylesheet' type='text/css'>
+	
+	<!-- Plugin CSS -->
+	<link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+	
+	<!-- Theme CSS -->
+	<link href="css/creative.min.css" rel="stylesheet">
+	
+	<!-- jQuery -->
+	<link rel="stylesheet"
+		href="http://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css"
+		type="text/css">
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	
+	<!-- Bootstrap Core JavaScript -->
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	
+	<!-- Plugin JavaScript -->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+	<script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+	<script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+	
+	<!-- Theme JavaScript -->
+	<script src="js/creative.min.js"></script>
 
-    <title>S.N.S</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-
-    <!-- Plugin CSS -->
-   <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
- 
-    <!-- Theme CSS -->
-    <link href="css/creative.min.css" rel="stylesheet">
-    
-    <!-- Table -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
- 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 <body id="page-top">
-	<!-- 네이게이션 바 시작 -->
-    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand page-scroll" href="#page-top">S.N.S</a>
-            </div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                         <input type="button" class="page-scroll btn btn-info btn-lg" data-toggle="modal" data-target="#Login" value="Login">
-                    </li>
-                    <li>
-                         <input type="button" id="myPage" class="page-scroll btn btn-info btn-lg" value="MyPage">
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
-    
-	<!-- 네이게이션 바 끝 -->
+	<!-- tiles -->
+	<%@include file="./tiles/navbar.jsp"%>
+	<%@include file="./tiles/header.jsp"%>
 	    
-	<!-- 헤더 시작 -->    
-    <header>
-    	
-    	<!-- 헤더 첫번째 row 시작-->
-        <div class="header-content row">
-            
-         <!-- 첫번째 row의 col-md-4 시작 -->   
-            <div class="header-content-inner col-md-4" >
-               <h1 id="homeHeading">S.N.S<br/><small>Stop no Show<br> 레스토랑 예약 프로그램!!</small></h1>
-            </div>
-             <!-- 첫번째 row의 col-md-4 끝 -->   
-            <!-- 첫번째 row의 col-md-8 시작 -->   
-            <div class="col-md-8">
-            <br/><br/><br/><br/>
-            <form class="form-inline">          
-               <select class="form-control">
-                <option value="">지역선택</option>
-                <option value="서울">서울</option>
-                <option value="경기">경기</option>
-                <option value="인천">인천</option>
-                </select>
-                <select class="form-control">
-                <option value="">인원선택</option>
-                <option value="2">2명</option>
-                <option value="3">3명</option>
-                <option value="4">4명</option>
-                 <option value="5">5명</option>
-                </select> 
-                <select class="form-control">
-                <option value="">요일선택</option>
-                <option value="월">월</option>
-                <option value="화">화</option>
-                <option value="수">수</option>
-                <option value="목">목</option>
-                <option value="금">금</option>
-                <option value="토">토</option>
-                <option value="일">일</option>
-                </select><br/><br/>
-                <input type="text" class="form-control" id="type" placeholder="요리 타입을 입력해주세요.">
-                <input type="text" class="form-control" id="company" placeholder="업체명을 입력해주세요.">&emsp;<a style="color:blue;font-size: 20px">search</a>
-               </form>
-            </div>
-           <!-- 첫번째 row의 col-md-8 끝-->   
-        </div><!-- 헤더 첫번째 row 끝-->
-    </header>
-    
-    
-    
-    
-    
-    <section id="reserveSection" style="height: 800px">
+    <section id="reserveSection">
 	<jsp:useBean id="toDay" class="java.util.Date"/>
 		<div class="container">
 			<div class="col-lg-2 col-sm-2"></div>
@@ -128,19 +69,25 @@
 				<div class="row"><br/></div>
 				<div class="row">
 					<div id="button1" class="col-lg-2 col-sm-2">
-					<button type="button" class="btn btn-default btn-lg" OnClick="window.location='/test/Mypage_Reserve.do'">예약현황</button>
+						<button type="button" class="btn btn-default btn-lg">
+							<a href="Mypage_Reserve.do">예약현황</a>
+						</button>
 					</div>
 				</div>
 				<div class="row"><br/></div>
 				<div class="row">
 					<div id="button2" class="col-lg-2 col-sm-2">
-					<button type="button" class="btn btn-default btn-lg" OnClick="window.location='/test/Mypage_UserInfo.do'">정보수정</button>
+						<button type="button" class="btn btn-default btn-lg">
+							<a href="Mypage_UserInfo.do">정보수정</a>
+						</button>
 					</div>
 				</div>
 				<div class="row"><br/></div>
 				<div class="row">
 					<div id="button3" class="col-lg-2 col-sm-2">
-					<button type="button" class="btn btn-default btn-lg" OnClick="window.location='/test/Mypage_Review.do'">후기목록</button>
+						<button type="button" class="btn btn-default btn-lg">
+							<a href="Mypage_Review.do">후기목록</a>
+						</button>
 					</div>
 				</div>
 			</div>
@@ -157,7 +104,7 @@
 					        <th>후기</th>
 				      	</tr>
 				    </thead>
-				    <tbody>
+				    <tbody id="tbody">
 				        <c:forEach var="reserveList" items="${reserveList}">
 							<tr>
 								<td>
@@ -203,6 +150,15 @@
 						</c:forEach>
 				    </tbody>
 				 </table>
+				 
+				 <div id="moreBtn" class="container-fluid">
+				     <div class="col-md-5"></div>
+				     <div id="more" class="btn btn-info btn-sm col-md-2">
+				          <span class="glyphicon glyphicon-chevron-down"></span> 더보기
+				     </div>
+				     <div class="col-md-5"></div>
+				 </div>
+				 
 			 </div>
 		</div>
 	</section>
@@ -299,11 +255,52 @@
 	    </div>
   	</div>
 	<!-- 모달 후기글쓰기 끝 -->	
+	
+	
+	
+	<script type="text/javascript">
+	
+	var end_rno = 10;
+	
+	$('#more').on('click',function(){
+		var url='More_Reserve.do'
+		
+		end_rno += 10;
+		end_rno.toString();
+		console.log(end_rno);
+		
+		var query = 'end_rno=' + end_rno;
+		
+		
+		$.ajax({
+			 type:"GET"
+			 ,url:url
+			 ,data:query
+			 ,dataType:"text"
+			 
+			 ,success:function(data){
+				 
+				 $('#tbody').html("");
+				 $('#tbody').append(data);
+				 
+			 }
+			 ,error:function(e){
+			  console.log(e.responseText);
+			 }
+			
+		})
+		
+	})
     
+    </script>
+	
+	
     
+    <div id="result"></div>
     
-    <!-- footer 추가 -->	
-	<%@include file="footer.jsp"%>
+	
+	<%@include file="./tiles/modal_login.jsp"%>
+	<%@include file="./tiles/footer.jsp"%>
 	
 </body>
 </html>
