@@ -120,91 +120,91 @@
     
     <section id="reserveSection" style="height: 800px">
 	<jsp:useBean id="toDay" class="java.util.Date"/>
-	<div class="container">
-		<div class="col-lg-2 col-sm-2"></div>
-		<div class="col-lg-10 col-sm-10"><h2>예약 현황</h2></div>
-		
-		<div id="menuList" class="col-lg-2 col-sm-2">
-			<div class="row"><br/></div>
-			<div class="row">
-				<div id="button1" class="col-lg-2 col-sm-2">
-				<button type="button" class="btn btn-default btn-lg" OnClick="window.location='/test/Mypage_Reserve.do'">예약현황</button>
+		<div class="container">
+			<div class="col-lg-2 col-sm-2"></div>
+			<div class="col-lg-10 col-sm-10"><h2>예약 현황</h2></div>
+			
+			<div id="menuList" class="col-lg-2 col-sm-2">
+				<div class="row"><br/></div>
+				<div class="row">
+					<div id="button1" class="col-lg-2 col-sm-2">
+					<button type="button" class="btn btn-default btn-lg" OnClick="window.location='/test/Mypage_Reserve.do'">예약현황</button>
+					</div>
+				</div>
+				<div class="row"><br/></div>
+				<div class="row">
+					<div id="button2" class="col-lg-2 col-sm-2">
+					<button type="button" class="btn btn-default btn-lg" OnClick="window.location='/test/Mypage_UserInfo.do'">정보수정</button>
+					</div>
+				</div>
+				<div class="row"><br/></div>
+				<div class="row">
+					<div id="button3" class="col-lg-2 col-sm-2">
+					<button type="button" class="btn btn-default btn-lg" OnClick="window.location='/test/Mypage_Review.do'">후기목록</button>
+					</div>
 				</div>
 			</div>
-			<div class="row"><br/></div>
-			<div class="row">
-				<div id="button2" class="col-lg-2 col-sm-2">
-				<button type="button" class="btn btn-default btn-lg" OnClick="window.location='/test/Mypage_UserInfo.do'">정보수정</button>
-				</div>
-			</div>
-			<div class="row"><br/></div>
-			<div class="row">
-				<div id="button3" class="col-lg-2 col-sm-2">
-				<button type="button" class="btn btn-default btn-lg" OnClick="window.location='/test/Mypage_Review.do'">후기목록</button>
-				</div>
-			</div>
-		</div>
-  		
-  		<div id="table" class="col-lg-10 col-sm-10">
-  		
-		  	<table class="table">
-				<thead>
-					<tr>
-				        <th>예약일자</th>
-				        <th>업체명</th>
-				        <th>상태창</th>
-				        <th>예약취소</th>
-				        <th>후기</th>
-			      	</tr>
-			    </thead>
-			    <tbody>
-			        <c:forEach var="reserveList" items="${reserveList}">
+	  		
+	  		<div id="table" class="col-lg-10 col-sm-10">
+	  		
+			  	<table class="table">
+					<thead>
 						<tr>
-							<td>
-								<fmt:formatDate value="${reserveList.reserve_date}" var="reserve_date" type="both" pattern="yyyy-MM-dd HH:mm"/>
-								${reserve_date}
-							</td>
-							<td>${reserveList.e_name}</td>
-							<td>
-								<c:if test="${reserveList.r_state==1}">
-									승인대기
-								</c:if>
-								<c:if test="${reserveList.r_state==2}">
-									예약완료
-								</c:if>
-								<c:if test="${reserveList.r_state==3}">
-									취소요청
-								</c:if>
-								<c:if test="${reserveList.r_state==4}">
-									이용완료
-								</c:if>
-								<c:if test="${reserveList.r_state==5}">
-									취소완료
-								</c:if>
-									
-							</td>
-							<td>
-								<fmt:parseDate value="${reserve_date}" var="reDay" pattern="yyyy-MM-dd HH:mm"/>
-								<c:if test="${reDay.time - toDay.time > 0}">
-									<c:if test="${reserveList.r_state==1 or reserveList.r_state==2}">
-										<input type="button" id="btn_cancel" class="btn btn-info btn-sm" value="Cancel">
+					        <th>예약일자</th>
+					        <th>업체명</th>
+					        <th>상태창</th>
+					        <th>예약취소</th>
+					        <th>후기</th>
+				      	</tr>
+				    </thead>
+				    <tbody>
+				        <c:forEach var="reserveList" items="${reserveList}">
+							<tr>
+								<td>
+									<fmt:formatDate value="${reserveList.reserve_date}" var="reserve_date" type="both" pattern="yyyy-MM-dd HH:mm"/>
+									${reserve_date}
+								</td>
+								<td>${reserveList.e_name}</td>
+								<td>
+									<c:if test="${reserveList.r_state==1}">
+										승인대기
 									</c:if>
-								</c:if>
-							</td>
-							<td>
-								<fmt:parseDate value="${reserve_date}" var="reDay" pattern="yyyy-MM-dd HH:mm"/>
-								<c:if test="${reDay.time - toDay.time < 0}">
-									<c:if test="${reDay.time - toDay.time > -3*(1000*60*60*24)}">
-										<input type="button" id="btn_write" class="btn btn-info btn-sm" data-toggle="modal" data-target="#write" value="Write">
+									<c:if test="${reserveList.r_state==2}">
+										예약완료
 									</c:if>
-								</c:if>
-							</td>
-						</tr>
-					</c:forEach>
-			    </tbody>
-			 </table>
-		 </div>
-	</div>
+									<c:if test="${reserveList.r_state==3}">
+										취소요청
+									</c:if>
+									<c:if test="${reserveList.r_state==4}">
+										이용완료
+									</c:if>
+									<c:if test="${reserveList.r_state==5}">
+										취소완료
+									</c:if>
+										
+								</td>
+								<td>
+									<fmt:parseDate value="${reserve_date}" var="reDay" pattern="yyyy-MM-dd HH:mm"/>
+									<c:if test="${reDay.time - toDay.time > 0}">
+										<c:if test="${reserveList.r_state==1 or reserveList.r_state==2}">
+											<input type="button" id="btn_cancel" class="btn btn-info btn-sm" value="Cancel">
+										</c:if>
+									</c:if>
+								</td>
+								<td>
+									<fmt:parseDate value="${reserve_date}" var="reDay" pattern="yyyy-MM-dd HH:mm"/>
+									<c:if test="${reDay.time - toDay.time < 0}">
+										<c:if test="${reDay.time - toDay.time > -3*(1000*60*60*24)}">
+											<input type="button" id="btn_write" class="btn btn-info btn-sm" data-toggle="modal" data-target="#write" value="Write">
+										</c:if>
+									</c:if>
+								</td>
+							</tr>
+						</c:forEach>
+				    </tbody>
+				 </table>
+			 </div>
+		</div>
 	</section>
 	
 	<aside class="bg-dark">
@@ -270,19 +270,19 @@
 					      	<div class="col-lg-8 col-sm-8">
 					      		<label for="comments">평점</label><br/> 
 					    		<label class="radio-inline">
-							      <input type="radio" name="optradio" id="5">5
+							      <input type="radio" name="ranking" id="5">5
 							    </label>
 							    <label class="radio-inline">
-							      <input type="radio" name="optradio" id="4">4
+							      <input type="radio" name="ranking" id="4">4
 							    </label>
 							    <label class="radio-inline">
-							      <input type="radio" name="optradio" id="3">3
+							      <input type="radio" name="ranking" id="3">3
 							    </label>
 							    <label class="radio-inline">
-							      <input type="radio" name="optradio" id="2">2
+							      <input type="radio" name="ranking" id="2">2
 							    </label>
 							    <label class="radio-inline">
-							      <input type="radio" name="optradio" id="1">1
+							      <input type="radio" name="ranking" id="1">1
 							    </label>
 					      	</div>
 					    </div>

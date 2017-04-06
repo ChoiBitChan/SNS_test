@@ -116,7 +116,7 @@
     
     
     
-     <section id="reviewSection" style="height: 800px ">
+    <section id="reviewSection" style="height: 800px ">
     	<div class="container">
 		<div class="col-lg-2 col-sm-2"></div>
 		<div class="col-lg-10 col-sm-10"><h2>후기목록</h2></div>
